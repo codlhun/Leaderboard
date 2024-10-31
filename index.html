@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -20,12 +21,13 @@
         .container {
             width: 80%;
             max-width: 1200px;
-            background: linear-gradient(135deg, #4d4d4d, #1a1a1a); /* Darkened background */
+            background: linear-gradient(135deg, #4d4d4d, #1a1a1a);
             border-radius: 15px;
             padding: 20px;
             text-align: center;
             position: relative;
-            animation: flicker 1.5s infinite alternate; /* Flickering border effect */
+            animation: flicker 1.5s infinite alternate;
+            box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000; /* Brighter red glow */
         }
 
         h1 {
@@ -34,6 +36,18 @@
             margin-bottom: 20px;
             font-size: 3rem;
             letter-spacing: 3px;
+        }
+
+        #top-performer {
+            font-size: 1.5rem;
+            color: #32cd32;
+            margin: 20px 0;
+        }
+
+        #countdown {
+            font-size: 1.2rem;
+            color: #ffcc00;
+            margin: 10px 0;
         }
 
         table {
@@ -64,21 +78,51 @@
             font-weight: bold;
         }
 
-        /* Highlight the #1 position row */
         tr:nth-child(2) td {
-            animation: flashGreen 0.5s infinite alternate; /* Flashes between two green shades */
+            animation: flashGreen 0.5s infinite alternate;
             font-size: 1.5rem;
             font-weight: bold;
         }
 
-        /* Automatic flashing between green shades */
+        .progress {
+            background-color: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 10px;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #00ff00;
+            width: 0%;
+            animation: progress-animation 1s forwards;
+        }
+
         @keyframes flashGreen {
             0% {
-                background-color: #00ff00; /* Bright green */
+                background-color: #00ff00;
             }
             100% {
-                background-color: #32cd32; /* Lighter green */
+                background-color: #32cd32;
             }
+        }
+
+        @keyframes flicker {
+            0% {
+                box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 45px #ff0000; /* Brighter red flicker */
+            }
+            50% {
+                box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; /* Brighter red flicker */
+            }
+            100% {
+                box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000; /* Brighter red flicker */
+            }
+        }
+
+        @keyframes progress-animation {
+            from { width: 0%; }
+            to { width: calc(var(--sales) * 3.7%); } /* Scale based on the sales number */
         }
 
         footer {
@@ -86,90 +130,114 @@
             color: #aaa;
             font-size: 0.9rem;
         }
-
-        /* Flickering border animation */
-        .container {
-            border: 3px solid #ff4d4d;
-            box-shadow: 0 0 20px #ff4d4d, 0 0 40px #0066cc, 0 0 60px #ff4d4d;
-        }
-
-        @keyframes flicker {
-            0% {
-                box-shadow: 0 0 15px #ff4d4d, 0 0 30px #0066cc, 0 0 45px #ff4d4d;
-            }
-            50% {
-                box-shadow: 0 0 10px #ff4d4d, 0 0 20px #0066cc, 0 0 30px #ff4d4d;
-            }
-            100% {
-                box-shadow: 0 0 20px #ff4d4d, 0 0 40px #0066cc, 0 0 60px #ff4d4d;
-            }
-        }
-
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Top 10 Sales Leaderboard</h1>
+        <div id="top-performer">🎉 Top Performer: Cytonia Williams with 27 sales! 🎉</div>
+        <div id="countdown">Time Left: <span id="timer"></span></div>
+        
         <table>
             <tr>
                 <th>Rank</th>
                 <th>Name</th>
                 <th>Total # of Sales</th>
+                <th>Progress</th>
             </tr>
             <tr>
                 <td>1</td>
                 <td>Cytonia Williams</td>
                 <td>27</td>
+                <td><div class="progress" style="--sales: 27;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>Jacqueline E. Johnson-Fowlkes</td>
                 <td>26</td>
+                <td><div class="progress" style="--sales: 26;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>Allison Roseman</td>
                 <td>25</td>
+                <td><div class="progress" style="--sales: 25;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>Bryan Rodriguez</td>
                 <td>24</td>
+                <td><div class="progress" style="--sales: 24;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>Cody Hunter</td>
                 <td>22</td>
+                <td><div class="progress" style="--sales: 22;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>6</td>
                 <td>Matthew Cruz</td>
                 <td>22</td>
+                <td><div class="progress" style="--sales: 22;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>7</td>
                 <td>Dena Fenne</td>
                 <td>22</td>
+                <td><div class="progress" style="--sales: 22;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>8</td>
                 <td>Crystal Lambach</td>
                 <td>21</td>
+                <td><div class="progress" style="--sales: 21;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>9</td>
                 <td>Marilyn Thrower</td>
                 <td>20</td>
+                <td><div class="progress" style="--sales: 20;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>10</td>
                 <td>Lakeshia Richardson</td>
                 <td>19</td>
+                <td><div class="progress" style="--sales: 19;"><div class="progress-bar"></div></div></td>
             </tr>
         </table>
         <footer>
             Updated manually throughout the day | Sales data for: <strong>31 Oct 2024</strong>
         </footer>
     </div>
+
+    <script>
+        // Set the end time to 9 PM EST
+        const endTime = new Date();
+        endTime.setHours(21, 0, 0, 0); // Set to 9:00 PM
+
+        // If the current time is already past 9 PM, set the countdown to 0
+        const now = new Date();
+        if (now > endTime) {
+            document.getElementById('timer').innerText = "Time's up!";
+        } else {
+            // Calculate remaining time in seconds
+            let timeLeft = Math.floor((endTime - now) / 1000);
+
+            const countdown = document.getElementById('timer');
+            const timer = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    countdown.innerText = "Time's up!";
+                } else {
+                    const hours = Math.floor(timeLeft / 3600);
+                    const minutes = Math.floor((timeLeft % 3600) / 60);
+                    const seconds = timeLeft % 60;
+                    countdown.innerText = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                    timeLeft--;
+                }
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
