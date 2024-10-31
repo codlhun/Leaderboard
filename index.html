@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Sales Leaderboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            background: linear-gradient(135deg, #4d4d4d, #1a1a1a); /* Darkened background */
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            animation: flicker 1.5s infinite alternate; /* Flickering border effect */
+        }
+
+        h1 {
+            color: #ff4d4d;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-size: 3rem;
+            letter-spacing: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 2px solid #ffffff;
+            padding: 15px;
+        }
+
+        th {
+            background-color: #0066cc;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        td:first-child {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        /* Highlight the #1 position row */
+        tr:nth-child(2) td {
+            animation: flashGreen 0.5s infinite alternate; /* Flashes between two green shades */
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Automatic flashing between green shades */
+        @keyframes flashGreen {
+            0% {
+                background-color: #00ff00; /* Bright green */
+            }
+            100% {
+                background-color: #32cd32; /* Lighter green */
+            }
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Flickering border animation */
+        .container {
+            border: 3px solid #ff4d4d;
+            box-shadow: 0 0 20px #ff4d4d, 0 0 40px #0066cc, 0 0 60px #ff4d4d;
+        }
+
+        @keyframes flicker {
+            0% {
+                box-shadow: 0 0 15px #ff4d4d, 0 0 30px #0066cc, 0 0 45px #ff4d4d;
+            }
+            50% {
+                box-shadow: 0 0 10px #ff4d4d, 0 0 20px #0066cc, 0 0 30px #ff4d4d;
+            }
+            100% {
+                box-shadow: 0 0 20px #ff4d4d, 0 0 40px #0066cc, 0 0 60px #ff4d4d;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Top 10 Sales Leaderboard</h1>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Total # of Sales</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Cytonia Williams</td>
+                <td>27</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacqueline E. Johnson-Fowlkes</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Allison Roseman</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Bryan Rodriguez</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Cody Hunter</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Matthew Cruz</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Dena Fenne</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Crystal Lambach</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Marilyn Thrower</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Lakeshia Richardson</td>
+                <td>19</td>
+            </tr>
+        </table>
+        <footer>
+            Updated manually throughout the day | Sales data for: <strong>31 Oct 2024</strong>
+        </footer>
+    </div>
+</body>
+</html>
