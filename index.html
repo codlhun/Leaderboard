@@ -6,9 +6,10 @@
     <title>Top 10 Sales Leaderboard</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Changed font to a more professional style */
+            background: url('/path/to/your/background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -21,17 +22,17 @@
         .container {
             width: 80%;
             max-width: 1200px;
-            background: linear-gradient(135deg, #4d4d4d, #1a1a1a);
+            background: rgba(30, 50, 70, 0.8);
             border-radius: 15px;
             padding: 20px;
             text-align: center;
             position: relative;
-            animation: flicker 1.5s infinite alternate;
-            box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000; /* Brighter red glow */
+            box-shadow: 0 0 30px rgba(0, 153, 255, 0.8), 0 0 60px rgba(0, 153, 255, 0.5);
         }
 
         h1 {
-            color: #ff4d4d;
+            font-family: 'Roboto', sans-serif; /* Updated font to Roboto for a professional look */
+            color: #00bfff;
             text-transform: uppercase;
             margin-bottom: 20px;
             font-size: 3rem;
@@ -40,8 +41,12 @@
 
         #top-performer {
             font-size: 1.5rem;
-            color: #32cd32;
+            color: black; /* Changed to black text */
             margin: 20px 0;
+            padding: 10px; /* Added padding */
+            border: 2px solid #ffcc00; /* Gold border */
+            background-color: rgba(255, 215, 0, 0.3); /* Light gold background */
+            border-radius: 10px; /* Rounded corners */
         }
 
         #countdown {
@@ -57,35 +62,43 @@
         }
 
         table, th, td {
-            border: 2px solid #ffffff;
+            border: 2px solid #00bfff;
             padding: 15px;
         }
 
         th {
-            background-color: #0066cc;
-            color: #fff;
+            background-color: #1e3246;
+            color: #00bfff;
             font-size: 1.5rem;
         }
 
         td {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            font-family: 'Arial', sans-serif; /* Updated font for names to Arial for modern readability */
+            background-color: rgba(30, 50, 70, 0.6);
+            color: #e0e0e0;
             font-size: 1.2rem;
+            position: relative;
+            animation: slide-in 0.8s ease-out forwards;
         }
 
         td:first-child {
-            color: #ff4d4d;
+            color: #ff6666;
             font-weight: bold;
         }
 
+        /* Flashing effect for the first place row */
         tr:nth-child(2) td {
             animation: flashGreen 0.5s infinite alternate;
             font-size: 1.5rem;
             font-weight: bold;
         }
 
+        .medal {
+            font-size: 1.5rem; /* Increased font size for medals */
+        }
+
         .progress {
-            background-color: #444;
+            background-color: rgba(200, 200, 200, 0.2);
             border-radius: 5px;
             overflow: hidden;
             height: 10px;
@@ -94,35 +107,24 @@
 
         .progress-bar {
             height: 100%;
-            background-color: #00ff00;
+            background: linear-gradient(90deg, #0073e6, #00bfff);
             width: 0%;
             animation: progress-animation 1s forwards;
         }
 
         @keyframes flashGreen {
-            0% {
-                background-color: #00ff00;
-            }
-            100% {
-                background-color: #32cd32;
-            }
+            0% { background-color: #4aff4a; }
+            100% { background-color: #32cd32; }
         }
 
-        @keyframes flicker {
-            0% {
-                box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 45px #ff0000; /* Brighter red flicker */
-            }
-            50% {
-                box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; /* Brighter red flicker */
-            }
-            100% {
-                box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000; /* Brighter red flicker */
-            }
+        @keyframes slide-in {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         @keyframes progress-animation {
             from { width: 0%; }
-            to { width: calc(var(--sales) * 3.7%); } /* Scale based on the sales number */
+            to { width: calc(var(--sales) * 3.7%); }
         }
 
         footer {
@@ -146,19 +148,19 @@
                 <th>Progress</th>
             </tr>
             <tr>
-                <td>1</td>
+                <td class="medal">🥇 1</td>
                 <td>Cytonia Williams</td>
                 <td>27</td>
                 <td><div class="progress" style="--sales: 27;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
-                <td>2</td>
+                <td class="medal">🥈 2</td>
                 <td>Jacqueline E. Johnson-Fowlkes</td>
                 <td>26</td>
                 <td><div class="progress" style="--sales: 26;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
-                <td>3</td>
+                <td class="medal">🥉 3</td>
                 <td>Allison Roseman</td>
                 <td>25</td>
                 <td><div class="progress" style="--sales: 25;"><div class="progress-bar"></div></div></td>
@@ -212,16 +214,14 @@
     </div>
 
     <script>
-        // Set the end time to 9 PM EST
+        // Countdown Timer Script
         const endTime = new Date();
-        endTime.setHours(21, 0, 0, 0); // Set to 9:00 PM
+        endTime.setHours(21, 0, 0, 0);
 
-        // If the current time is already past 9 PM, set the countdown to 0
         const now = new Date();
         if (now > endTime) {
             document.getElementById('timer').innerText = "Time's up!";
         } else {
-            // Calculate remaining time in seconds
             let timeLeft = Math.floor((endTime - now) / 1000);
 
             const countdown = document.getElementById('timer');
