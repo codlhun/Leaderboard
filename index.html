@@ -6,7 +6,7 @@
     <title>Top 10 Sales Leaderboard</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Changed font to a more professional style */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: url('/path/to/your/background-image.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #e0e0e0;
@@ -31,7 +31,7 @@
         }
 
         h1 {
-            font-family: 'Roboto', sans-serif; /* Updated font to Roboto for a professional look */
+            font-family: 'Roboto', sans-serif;
             color: #00bfff;
             text-transform: uppercase;
             margin-bottom: 20px;
@@ -41,12 +41,12 @@
 
         #top-performer {
             font-size: 1.5rem;
-            color: black; /* Changed to black text */
+            color: black;
             margin: 20px 0;
-            padding: 10px; /* Added padding */
-            border: 2px solid #ffcc00; /* Gold border */
-            background-color: rgba(255, 215, 0, 0.3); /* Light gold background */
-            border-radius: 10px; /* Rounded corners */
+            padding: 10px;
+            border: 2px solid #ffcc00;
+            background-color: rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
         }
 
         #countdown {
@@ -73,12 +73,12 @@
         }
 
         td {
-            font-family: 'Arial', sans-serif; /* Updated font for names to Arial for modern readability */
+            font-family: 'Arial', sans-serif;
             background-color: rgba(30, 50, 70, 0.6);
             color: #e0e0e0;
             font-size: 1.2rem;
             position: relative;
-            animation: slide-in 0.8s ease-out forwards;
+            opacity: 0; /* Start with hidden rows */
         }
 
         td:first-child {
@@ -86,15 +86,8 @@
             font-weight: bold;
         }
 
-        /* Flashing effect for the first place row */
-        tr:nth-child(2) td {
-            animation: flashGreen 0.5s infinite alternate;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
         .medal {
-            font-size: 1.5rem; /* Increased font size for medals */
+            font-size: 1.5rem;
         }
 
         .progress {
@@ -112,14 +105,16 @@
             animation: progress-animation 1s forwards;
         }
 
-        @keyframes flashGreen {
-            0% { background-color: #4aff4a; }
-            100% { background-color: #32cd32; }
-        }
-
-        @keyframes slide-in {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        /* Slide-in animation for rows */
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         @keyframes progress-animation {
@@ -140,7 +135,7 @@
         <div id="top-performer">🎉 Top Performer: Gabriel Kendrick with 12 sales! 🎉</div>
         <div id="countdown">Time Left: <span id="timer"></span></div>
         
-        <table>
+        <table id="leaderboard-table">
             <tr>
                 <th>Rank</th>
                 <th>Name</th>
@@ -148,19 +143,19 @@
                 <th>Progress</th>
             </tr>
             <tr>
-                <td class="medal">🥇 1</td>
+                <td class="medal">🥇</td>
                 <td>Gabriel Kendrick</td>
                 <td>12</td>
                 <td><div class="progress" style="--sales: 12;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
-                <td class="medal">🥈 2</td>
+                <td class="medal">🥈</td>
                 <td>Allison Roseman</td>
                 <td>10</td>
                 <td><div class="progress" style="--sales: 10;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
-                <td class="medal">🥉 3</td>
+                <td class="medal">🥉</td>
                 <td>Mariah Wall</td>
                 <td>10</td>
                 <td><div class="progress" style="--sales: 10;"><div class="progress-bar"></div></div></td>
@@ -238,6 +233,22 @@
                 }
             }, 1000);
         }
+
+        // Function to reveal each row one by one
+        function revealRows() {
+            const rows = document.querySelectorAll('#leaderboard-table tr');
+            rows.forEach((row, index) => {
+                setTimeout(() => {
+                    row.querySelectorAll('td').forEach(cell => {
+                        cell.style.opacity = '1';
+                        cell.style.animation = 'slideIn 0.5s forwards';
+                    });
+                }, index * 500); // Delay for each row (0.5s between each)
+            });
+        }
+
+        // Run the revealRows function after the page loads
+        window.onload = revealRows;
     </script>
 </body>
 </html>
