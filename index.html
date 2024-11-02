@@ -8,7 +8,6 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: url('leaderboard.jpg') no-repeat center center fixed;
-
             background-size: cover;
             color: #e0e0e0;
             margin: 0;
@@ -21,11 +20,11 @@
         }
 
         .container {
-            width: 80%;
-            max-width: 1200px;
+            width: 68%; /* 80% - 15% of 80% = 68% */
+            max-width: 1020px; /* 1200px - 15% of 1200px = 1020px */
             background: rgba(30, 50, 70, 0.8);
             border-radius: 15px;
-            padding: 20px;
+            padding: 17px; /* 20px - 15% = 17px */
             text-align: center;
             position: relative;
             box-shadow: 0 0 30px rgba(0, 153, 255, 0.8), 0 0 60px rgba(0, 153, 255, 0.5);
@@ -35,16 +34,16 @@
             font-family: 'Roboto', sans-serif;
             color: #00bfff;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            font-size: 3rem;
-            letter-spacing: 3px;
+            margin-bottom: 17px; /* 20px - 15% = 17px */
+            font-size: 2.55rem; /* 3rem - 15% = 2.55rem */
+            letter-spacing: 2.55px; /* 3px - 15% = 2.55px */
         }
 
         #top-performer, #most-referrals {
-            font-size: 1.5rem;
+            font-size: 1.28rem; /* 1.5rem - 15% = 1.28rem */
             color: black;
-            margin: 10px 0;
-            padding: 10px;
+            margin: 8.5px 0; /* 10px - 15% = 8.5px */
+            padding: 8.5px; /* 10px - 15% = 8.5px */
             border-radius: 10px;
         }
 
@@ -59,35 +58,35 @@
         }
 
         #countdown {
-            font-size: 1.2rem;
+            font-size: 1.02rem; /* 1.2rem - 15% = 1.02rem */
             color: #ffcc00;
-            margin: 10px 0;
+            margin: 8.5px 0; /* 10px - 15% = 8.5px */
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 17px 0; /* 20px - 15% = 17px */
         }
 
         table, th, td {
             border: 2px solid #00bfff;
-            padding: 15px;
+            padding: 12.75px; /* 15px - 15% = 12.75px */
         }
 
         th {
             background-color: #1e3246;
             color: #00bfff;
-            font-size: 1.5rem;
+            font-size: 1.28rem; /* 1.5rem - 15% = 1.28rem */
         }
 
         td {
             font-family: 'Arial', sans-serif;
             background-color: rgba(30, 50, 70, 0.6);
             color: #e0e0e0;
-            font-size: 1.2rem;
+            font-size: 1.02rem; /* 1.2rem - 15% = 1.02rem */
             position: relative;
-            opacity: 0;
+            opacity: 50;
         }
 
         td:first-child {
@@ -96,15 +95,15 @@
         }
 
         .medal {
-            font-size: 1.5rem;
+            font-size: 1.28rem; /* 1.5rem - 15% = 1.28rem */
         }
 
         .progress {
             background-color: rgba(200, 200, 200, 0.2);
             border-radius: 5px;
             overflow: hidden;
-            height: 10px;
-            margin-top: 5px;
+            height: 8.5px; /* 10px - 15% = 8.5px */
+            margin-top: 4.25px; /* 5px - 15% = 4.25px */
         }
 
         .progress-bar {
@@ -140,9 +139,9 @@
         }
 
         footer {
-            margin-top: 20px;
+            margin-top: 17px; /* 20px - 15% = 17px */
             color: #aaa;
-            font-size: 0.9rem;
+            font-size: 0.76rem; /* 0.9rem - 15% = 0.76rem */
         }
     </style>
 </head>
@@ -204,66 +203,43 @@
             </tr>
             <tr>
                 <td>8</td>
-                <td>Laura Ornelas</td>
-                <td>9</td>
-                <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
+                <td>Elina Poitras</td>
+                <td>8</td>
+                <td><div class="progress" style="--sales: 8;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>9</td>
-                <td>Rolando Garcia</td>
-                <td>9</td>
-                <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
+                <td>Talia Anderson</td>
+                <td>8</td>
+                <td><div class="progress" style="--sales: 8;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>10</td>
-                <td>Thommassa Derr</td>
-                <td>9</td>
-                <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
+                <td>Alan Green</td>
+                <td>7</td>
+                <td><div class="progress" style="--sales: 7;"><div class="progress-bar"></div></div></td>
             </tr>
         </table>
-        <footer>
-            Updated manually throughout the day | Sales data for: <strong>01 Nov 2024</strong>
-        </footer>
     </div>
-
+    <footer>&copy; 2024 Your Company Name. All rights reserved.</footer>
     <script>
-        const endTime = new Date();
-        endTime.setHours(21, 0, 0, 0);
+        const timerDisplay = document.getElementById('timer');
+        let timeRemaining = 300; // 5 minutes in seconds
 
-        const now = new Date();
-        if (now > endTime) {
-            document.getElementById('timer').innerText = "Time's up!";
-        } else {
-            let timeLeft = Math.floor((endTime - now) / 1000);
-
-            const countdown = document.getElementById('timer');
-            const timer = setInterval(() => {
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    countdown.innerText = "Time's up!";
-                } else {
-                    const hours = Math.floor(timeLeft / 3600);
-                    const minutes = Math.floor((timeLeft % 3600) / 60);
-                    const seconds = timeLeft % 60;
-                    countdown.innerText = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-                    timeLeft--;
-                }
-            }, 1000);
+        function updateTimer() {
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                timerDisplay.textContent = 'Time Up!';
+                return;
+            }
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timeRemaining--;
         }
 
-        function revealRows() {
-            const rows = Array.from(document.querySelectorAll('#leaderboard-table tr')).slice(1).reverse();
-            rows.forEach((row, index) => {
-                setTimeout(() => {
-                    row.querySelectorAll('td').forEach(cell => {
-                        cell.style.opacity = '1';
-                        cell.style.animation = 'slideIn 0.5s forwards';
-                    });
-                }, index * 500);
-            });
-        }
-
-        window.onload = revealRows;
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer(); // Initialize timer display
     </script>
 </body>
 </html>
