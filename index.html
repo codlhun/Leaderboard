@@ -122,6 +122,16 @@
             to { width: calc(var(--sales) * 3.7%); }
         }
 
+        /* Flashing green glow for first place */
+        .first-place {
+            animation: flashGlow 1s infinite alternate;
+        }
+
+        @keyframes flashGlow {
+            0% { box-shadow: 0 0 10px #32cd32; background-color: #2e8b57; } /* Light green */
+            100% { box-shadow: 0 0 20px #98fb98, 0 0 30px #32cd32; background-color: #32cd32; } /* Dark green */
+        }
+
         footer {
             margin-top: 20px;
             color: #aaa;
@@ -142,7 +152,7 @@
                 <th>Total # of Sales</th>
                 <th>Progress</th>
             </tr>
-            <tr>
+            <tr class="first-place">
                 <td class="medal">🥇</td>
                 <td>Gabriel Kendrick</td>
                 <td>12</td>
@@ -234,9 +244,9 @@
             }, 1000);
         }
 
-        // Function to reveal each row one by one
+        // Function to reveal each row one by one in reverse order
         function revealRows() {
-            const rows = document.querySelectorAll('#leaderboard-table tr');
+            const rows = Array.from(document.querySelectorAll('#leaderboard-table tr')).slice(1).reverse();
             rows.forEach((row, index) => {
                 setTimeout(() => {
                     row.querySelectorAll('td').forEach(cell => {
