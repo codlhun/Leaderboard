@@ -39,14 +39,22 @@
             letter-spacing: 3px;
         }
 
-        #top-performer {
+        #top-performer, #most-referrals {
             font-size: 1.5rem;
             color: black;
-            margin: 20px 0;
+            margin: 10px 0;
             padding: 10px;
+            border-radius: 10px;
+        }
+
+        #top-performer {
             border: 2px solid #ffcc00;
             background-color: rgba(255, 215, 0, 0.3);
-            border-radius: 10px;
+        }
+
+        #most-referrals {
+            border: 2px solid #ff3333;
+            background-color: rgba(255, 51, 51, 0.3);
         }
 
         #countdown {
@@ -78,7 +86,7 @@
             color: #e0e0e0;
             font-size: 1.2rem;
             position: relative;
-            opacity: 0; /* Start with hidden rows */
+            opacity: 0;
         }
 
         td:first-child {
@@ -105,7 +113,6 @@
             animation: progress-animation 1s forwards;
         }
 
-        /* Slide-in animation for rows */
         @keyframes slideIn {
             from {
                 transform: translateY(50px);
@@ -122,14 +129,13 @@
             to { width: calc(var(--sales) * 3.7%); }
         }
 
-        /* Flashing green glow for first place */
         .first-place {
             animation: flashGlow 1s infinite alternate;
         }
 
         @keyframes flashGlow {
-            0% { box-shadow: 0 0 10px #32cd32; background-color: #2e8b57; } /* Light green */
-            100% { box-shadow: 0 0 20px #98fb98, 0 0 30px #32cd32; background-color: #32cd32; } /* Dark green */
+            0% { box-shadow: 0 0 10px #32cd32; background-color: #2e8b57; }
+            100% { box-shadow: 0 0 20px #98fb98, 0 0 30px #32cd32; background-color: #32cd32; }
         }
 
         footer {
@@ -143,6 +149,7 @@
     <div class="container">
         <h1>Top 10 Sales Leaderboard</h1>
         <div id="top-performer">🎉 Top Performer: Gabriel Kendrick with 12 sales! 🎉</div>
+        <div id="most-referrals">🔥 Most Referrals: Gabriel Kendrick with 6! 🔥</div>
         <div id="countdown">Time Left: <span id="timer"></span></div>
         
         <table id="leaderboard-table">
@@ -219,7 +226,6 @@
     </div>
 
     <script>
-        // Countdown Timer Script
         const endTime = new Date();
         endTime.setHours(21, 0, 0, 0);
 
@@ -244,7 +250,6 @@
             }, 1000);
         }
 
-        // Function to reveal each row one by one in reverse order
         function revealRows() {
             const rows = Array.from(document.querySelectorAll('#leaderboard-table tr')).slice(1).reverse();
             rows.forEach((row, index) => {
@@ -253,11 +258,10 @@
                         cell.style.opacity = '1';
                         cell.style.animation = 'slideIn 0.5s forwards';
                     });
-                }, index * 500); // Delay for each row (0.5s between each)
+                }, index * 500);
             });
         }
 
-        // Run the revealRows function after the page loads
         window.onload = revealRows;
     </script>
 </body>
