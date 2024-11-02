@@ -144,6 +144,19 @@
             color: #aaa;
             font-size: 0.76rem;
         }
+
+        /* Legend for explaining the crown icon */
+        .legend {
+            text-align: left;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: rgba(30, 50, 70, 0.8);
+            color: #e0e0e0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
@@ -162,7 +175,7 @@
             </tr>
             <tr class="first-place">
                 <td class="medal">🥇</td>
-                <td>Gabriel Kendrick</td>
+                <td>👑 Gabriel Kendrick</td> <!-- Crown icon added here -->
                 <td>12</td>
                 <td><div class="progress" style="--sales: 12;"><div class="progress-bar"></div></div></td>
             </tr>
@@ -221,26 +234,35 @@
                 <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
             </tr>
         </table>
+
+        <!-- Simple legend for the crown icon -->
+        <div class="legend">
+            <strong>Legend:</strong><br>
+            👑 = Defending Champion
+        </div>
     </div>
-    <footer>&copy; 2024 Your Company Name. All rights reserved.</footer>
+    <footer>&copy; 2024 Your Company Name</footer>
+    
     <script>
-        const timerDisplay = document.getElementById('timer');
-        let timeRemaining = 300; // 5 minutes in seconds
+        // Timer countdown (same functionality)
+        const countdownDate = new Date().setHours(17, 0, 0, 0);
+        const timer = document.getElementById('timer');
 
         function updateTimer() {
-            if (timeRemaining <= 0) {
-                clearInterval(timerInterval);
-                timerDisplay.textContent = 'Time Up!';
-                return;
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            if (distance > 0) {
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                timer.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                timer.innerHTML = "Leaderboard has ended!";
             }
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = timeRemaining % 60;
-            timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            timeRemaining--;
         }
 
-        const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer(); // Initialize timer display
+        setInterval(updateTimer, 1000);
     </script>
 </body>
 </html>
