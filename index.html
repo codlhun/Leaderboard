@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top 10 Sales Leaderboard</title>
     <style>
+        /* Same CSS as before */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: url('leaderboard.jpg') no-repeat center center fixed;
@@ -20,11 +21,11 @@
         }
 
         .container {
-            width: 68%; /* 80% - 15% of 80% = 68% */
-            max-width: 1020px; /* 1200px - 15% of 1200px = 1020px */
+            width: 68%;
+            max-width: 1020px;
             background: rgba(30, 50, 70, 0.8);
             border-radius: 15px;
-            padding: 17px; /* 20px - 15% = 17px */
+            padding: 17px;
             text-align: center;
             position: relative;
             box-shadow: 0 0 30px rgba(0, 153, 255, 0.8), 0 0 60px rgba(0, 153, 255, 0.5);
@@ -34,16 +35,16 @@
             font-family: 'Roboto', sans-serif;
             color: #00bfff;
             text-transform: uppercase;
-            margin-bottom: 17px; /* 20px - 15% = 17px */
-            font-size: 2.55rem; /* 3rem - 15% = 2.55rem */
-            letter-spacing: 2.55px; /* 3px - 15% = 2.55px */
+            margin-bottom: 17px;
+            font-size: 2.55rem;
+            letter-spacing: 2.55px;
         }
 
         #top-performer, #most-referrals {
-            font-size: 1.28rem; /* 1.5rem - 15% = 1.28rem */
+            font-size: 1.28rem;
             color: black;
-            margin: 8.5px 0; /* 10px - 15% = 8.5px */
-            padding: 8.5px; /* 10px - 15% = 8.5px */
+            margin: 8.5px 0;
+            padding: 8.5px;
             border-radius: 10px;
         }
 
@@ -58,33 +59,33 @@
         }
 
         #countdown {
-            font-size: 1.02rem; /* 1.2rem - 15% = 1.02rem */
+            font-size: 1.02rem;
             color: #ffcc00;
-            margin: 8.5px 0; /* 10px - 15% = 8.5px */
+            margin: 8.5px 0;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 17px 0; /* 20px - 15% = 17px */
+            margin: 17px 0;
         }
 
         table, th, td {
             border: 2px solid #00bfff;
-            padding: 12.75px; /* 15px - 15% = 12.75px */
+            padding: 12.75px;
         }
 
         th {
             background-color: #1e3246;
             color: #00bfff;
-            font-size: 1.28rem; /* 1.5rem - 15% = 1.28rem */
+            font-size: 1.28rem;
         }
 
         td {
             font-family: 'Arial', sans-serif;
             background-color: rgba(30, 50, 70, 0.6);
             color: #e0e0e0;
-            font-size: 1.02rem; /* 1.2rem - 15% = 1.02rem */
+            font-size: 1.02rem;
             position: relative;
             opacity: 50;
         }
@@ -95,15 +96,15 @@
         }
 
         .medal {
-            font-size: 1.28rem; /* 1.5rem - 15% = 1.28rem */
+            font-size: 1.28rem;
         }
 
         .progress {
             background-color: rgba(200, 200, 200, 0.2);
             border-radius: 5px;
             overflow: hidden;
-            height: 8.5px; /* 10px - 15% = 8.5px */
-            margin-top: 4.25px; /* 5px - 15% = 4.25px */
+            height: 8.5px;
+            margin-top: 4.25px;
         }
 
         .progress-bar {
@@ -139,9 +140,9 @@
         }
 
         footer {
-            margin-top: 17px; /* 20px - 15% = 17px */
+            margin-top: 17px;
             color: #aaa;
-            font-size: 0.76rem; /* 0.9rem - 15% = 0.76rem */
+            font-size: 0.76rem;
         }
     </style>
 </head>
@@ -168,56 +169,56 @@
             <tr>
                 <td class="medal">🥈</td>
                 <td>Allison Roseman</td>
-                <td>10</td>
-                <td><div class="progress" style="--sales: 10;"><div class="progress-bar"></div></div></td>
+                <td>11</td>
+                <td><div class="progress" style="--sales: 11;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td class="medal">🥉</td>
-                <td>Mariah Wall</td>
+                <td>Jacqueline Johnson-Fowlkes</td>
+                <td>11</td>
+                <td><div class="progress" style="--sales: 11;"><div class="progress-bar"></div></div></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Armon Sesson</td>
                 <td>10</td>
                 <td><div class="progress" style="--sales: 10;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
-                <td>4</td>
-                <td>Alexia Smith Croft</td>
-                <td>9</td>
-                <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
-            </tr>
-            <tr>
                 <td>5</td>
-                <td>Enone Joseph</td>
-                <td>9</td>
-                <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
+                <td>Garrett Spottswood</td>
+                <td>10</td>
+                <td><div class="progress" style="--sales: 10;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>6</td>
-                <td>Jacqueline Johnson-Fowlkes</td>
-                <td>9</td>
-                <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
+                <td>Kamal Ramos</td>
+                <td>10</td>
+                <td><div class="progress" style="--sales: 10;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>7</td>
-                <td>Kamal Ramos</td>
+                <td>Laura Ornelas</td>
+                <td>10</td>
+                <td><div class="progress" style="--sales: 10;"><div class="progress-bar"></div></div></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Thommassa Derr</td>
+                <td>10</td>
+                <td><div class="progress" style="--sales: 10;"><div class="progress-bar"></div></div></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Almendra Romo</td>
                 <td>9</td>
                 <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Elina Poitras</td>
-                <td>8</td>
-                <td><div class="progress" style="--sales: 8;"><div class="progress-bar"></div></div></td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Talia Anderson</td>
-                <td>8</td>
-                <td><div class="progress" style="--sales: 8;"><div class="progress-bar"></div></div></td>
             </tr>
             <tr>
                 <td>10</td>
-                <td>Alan Green</td>
-                <td>7</td>
-                <td><div class="progress" style="--sales: 7;"><div class="progress-bar"></div></div></td>
+                <td>Chastity Mccollum</td>
+                <td>9</td>
+                <td><div class="progress" style="--sales: 9;"><div class="progress-bar"></div></div></td>
             </tr>
         </table>
     </div>
